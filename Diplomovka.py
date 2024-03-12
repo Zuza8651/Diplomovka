@@ -175,6 +175,116 @@ def choquet_integral(vector, p):
 choquet_integral_vysledok = choquet_integral([18,16,10], 0.9)
 print(choquet_integral_vysledok)
 
+
+def CAO_choquet_integral(vector,p, set):
+  new_vector=[0]*len(vector)
+  for i in range(0, len(set)):
+    new_vector[set[i]]=vector[set[i]]
+  return choquet_integral(new_vector,p)
+
+print(CAO_choquet_integral([18,16,10],0.9,[0,1,2]))
+
+
+def aritmeticky_priemer(vektor,p):
+    sucet = sum(vektor)
+    priemer = sucet / len(vektor)
+    return priemer
+
+artm_priem=aritmeticky_priemer([18,16,10],0.9)
+print(artm_priem)
+
+
+
+def CAO_aritmeticky_priemer(vector,p, set):
+  new_vector=[]
+  for i in range(0, len(set)):
+    new_vector.append(vector[set[i]])
+  return aritmeticky_priemer(new_vector,p)
+
+CAO_artm_priem=CAO_aritmeticky_priemer([18,16,10],0.9,[0,1,2])
+print(CAO_artm_priem)
+
+
+def mc_integral(vector, p, function):
+    mc_int = 0.0
+    auxiliary_vector = vector.copy()
+    m_vector = []
+    for i in range(0,len(vector)):
+        m_vector.insert(0, function(auxiliary_vector))
+        auxiliary_vector.pop()
+
+    sorted_vector = sorted(m_vector)
+    # pridať nulu na začiatok
+    sorted_vector.insert(0, 0)
+    for i in range(1, len(sorted_vector)):
+        mc_int = mc_int + (sorted_vector[i] - sorted_vector[i - 1]) * ((len(sorted_vector) - i) / len(vector)) ** p
+    return mc_int
+
+
+mc_integral_vysledok = mc_integral([18, 16, 10], 0.9, aritmeticky_priemer)
+print(mc_integral_vysledok)
+
+
+
+def maximum(vector,p):
+  return max(vector)
+
+
+def CAO_maximum(vector,p,set):
+  new_vector=[]
+  for i in range(0, len(set)):
+    new_vector.append(vector[set[i]])
+  return maximum(new_vector,p)
+
+print(CAO_maximum([18,16,10],0.9,[1,2]))
+
+
+
+def minimum(vector,p):
+  return min(vector)
+
+
+def CAO_minimum(vector,p,set):
+  new_vector=[]
+  for i in range(0, len(set)):
+    new_vector.append(vector[set[i]])
+  return minimum(new_vector,p)
+
+print(CAO_minimum([18,16,10],0.9,[0,1]))
+
+
+def C_Ag_operator(vector, p, array):
+  cag=0.0
+  auxiliary_vector = []
+  for i in range(0,len(vector)):
+    func=array[i]
+    auxiliary_vector.append(func(vector,p))
+  return auxiliary_vector
+
+
+print(C_Ag_operator([18,16,10],0.9,[aritmeticky_priemer,choquet_integral,minimum]))
+
+
+
+def C_APdPid(vector, p, array, sets): # PI^\downarrow, PHI_\id=PHI_\uparrow pre vstupne x:=x^\uparrow
+  c_app=0.0
+  vector.sort()
+  auxiliary_vector = []
+  for i in range(0,len(vector)):
+    cao=array[i]
+    auxiliary_vector.append(cao(vector,p,sets[i]))
+  auxiliary_vector.sort(reverse=True)
+  for i in range(0, len(auxiliary_vector)):
+        c_app = c_app + (auxiliary_vector[i])*((((len(auxiliary_vector) - i) / len(vector)) ** p)-(((len(auxiliary_vector) - i-1) / len(vector)) ** p))
+  return c_app
+
+print(C_APdPid([18,16,10],0.9,[CAO_aritmeticky_priemer,CAO_choquet_integral,CAO_minimum],[[0,1],[0,1,2],[1]]))
+
+
+# def C_APdPd(vector, p, array, sets): # PI^\downarrow, PHI_\down pre vstupne x:=x^\uparrow
+# def C_APuPd(vector, p, array, sets): # PI^\uparrow, PHI_\downarrow pre vstupne x:=x^\uparrow
+# def C_APuPu(vector, p, array, sets): # PI^\uparrow, PHI_\id=PHI_\uparrow pre vstupne x:=x^\uparrow
+
 #def a_choquet_integral():
 
 '''
