@@ -178,9 +178,9 @@ print(choquet_integral_vysledok)
 #def a_choquet_integral():
 
 '''
-def mc_integral(vector, p, function()):
+def mc_integral(vector, p, function):
     mc_int = 0.0
-    auxiliary_vector = vector
+    auxiliary_vector = vector.copy()
     m_vector = []
     for i in range(0,len(vector)):
         m_vector.insert(0, function(auxiliary_vector))
@@ -194,7 +194,7 @@ def mc_integral(vector, p, function()):
     return mc_int
 
 
-mc_integral_vysledok = mc_integral([18, 16, 10], 0.9, aritmeticky_priemer())
+mc_integral_vysledok = mc_integral([18, 16, 10], 0.9, aritmeticky_priemer)
 print(mc_integral_vysledok)
 
 '''
