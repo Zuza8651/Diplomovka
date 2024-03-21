@@ -51,42 +51,6 @@ zosiv_obrazok('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/2903
 
 # zosivenie -- JE
 
-'''
-def vytvor_vstupny_vektor_agregacia(obrazok):
-    # Konvertujte obrázok na numpy pole
-    obrazok_array = np.asarray(obrazok)
-
-    # Rozmery obrázka
-    rows, cols = obrazok_array.shape
-
-    # Vytvorenie prazdneho pola pre vstupny vektor
-    vstupny_vektor = np.zeros((rows, cols, 8), dtype=np.uint8)
-
-    # Pre každý pixel [x, y] vypočítajte hodnoty |I([x + i, y + j]) - I([x, y])| pre i, j = -1, 0, 1
-    for i in range(-1, 2):
-        for j in range(-1, 2):
-            # Výpočet hodnôt
-            hodnoty = np.abs(obrazok_array - np.roll(obrazok_array, (i, j), axis=(0, 1)))
-
-            # Pridanie hodnôt do vstupného vektora
-            vstupny_vektor[:, :, (i + 1) * 3 + (j + 1)] = hodnoty
-
-    return vstupny_vektor
-
-# Cesta k čiernobiélemu obrázku (zosivenému)
-cesta_k_ciernobielmu_obrazku = 'C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/29030_zosiveny.png'
-
-# Načítanie čiernobiéleho obrázku
-ciernobiely_obrazok = Image.open(cesta_k_ciernobielmu_obrazku)
-
-# Vytvorenie vstupného vektora pre agregáciu
-vstupny_vektor_agregacia = vytvor_vstupny_vektor_agregacia(ciernobiely_obrazok)
-
-# Výpis alebo ďalšie spracovanie vstupného vektora
-print("Vstupný vektor pre agregáciu:", vstupny_vektor_agregacia)
-'''
-
-
 def rozmazanie_gradient1(input_path, output_path):
     try:
         # Načítanie obrázka
@@ -297,8 +261,62 @@ print(C_APdPid([18,16,10],0.9,[CAO_aritmeticky_priemer,CAO_choquet_integral,CAO_
 
 
 # def C_APdPd(vector, p, array, sets): # PI^\downarrow, PHI_\down pre vstupne x:=x^\uparrow
+def C_APdPd(vector, p, array, sets): # PI^\downarrow, PHI_\down pre vstupne x:=x^\uparrow
+    c_app = 0.0
+    vector.sort(reverse=True)
+    auxiliary_vector = []
+    for i in range(0, len(vector)):
+        cao = array[i]
+        auxiliary_vector.append(cao(vector, p, sets[i]))
+    auxiliary_vector.sort(reverse=True)
+    for i in range(0, len(auxiliary_vector)):
+        c_app = c_app + (auxiliary_vector[i]) * ((((len(auxiliary_vector) - i) / len(vector)) ** p) - (
+                    ((len(auxiliary_vector) - i - 1) / len(vector)) ** p))
+    return c_app
+
+print('Na permutaciach zavisli Choquetov operator: C_APdPd=',
+          C_APdPd([18, 16, 10], 0.9, [CAO_aritmeticky_priemer, CAO_choquet_integral, CAO_minimum],
+                   [[0, 1], [0, 1, 2], [1]]))
+
+
 # def C_APuPd(vector, p, array, sets): # PI^\uparrow, PHI_\downarrow pre vstupne x:=x^\uparrow
+def C_APuPd(vector, p, array, sets): # PI^\uparrow, PHI_\downarrow pre vstupne x:=x^\uparrow
+    c_app = 0.0
+    vector.sort(reverse=True)
+    auxiliary_vector = []
+    for i in range(0, len(vector)):
+        cao = array[i]
+        auxiliary_vector.append(cao(vector, p, sets[i]))
+    auxiliary_vector.sort()
+    for i in range(0, len(auxiliary_vector)):
+        c_app = c_app + (auxiliary_vector[i]) * ((((len(auxiliary_vector) - i) / len(vector)) ** p) - (
+                    ((len(auxiliary_vector) - i - 1) / len(vector)) ** p))
+    return c_app
+
+print('Na permutaciach zavisli Choquetov operator: C_APuPd=',
+          C_APuPd([18, 16, 10], 0.9, [CAO_aritmeticky_priemer, CAO_choquet_integral, CAO_minimum],
+                   [[0, 1], [0, 1, 2], [1]]))
+
+
+
 # def C_APuPu(vector, p, array, sets): # PI^\uparrow, PHI_\id=PHI_\uparrow pre vstupne x:=x^\uparrow
+def C_APuPu(vector, p, array, sets): # PI^\uparrow, PHI_\id=PHI_\uparrow pre vstupne x:=x^\uparrow
+    c_app = 0.0
+    vector.sort()
+    auxiliary_vector = []
+    for i in range(0, len(vector)):
+        cao = array[i]
+        auxiliary_vector.append(cao(vector, p, sets[i]))
+    auxiliary_vector.sort()
+    for i in range(0, len(auxiliary_vector)):
+        c_app = c_app + (auxiliary_vector[i]) * ((((len(auxiliary_vector) - i) / len(vector)) ** p) - (
+                    ((len(auxiliary_vector) - i - 1) / len(vector)) ** p))
+    return c_app
+
+print('Na permutaciach zavisli Choquetov operator: C_APuPu=',
+          C_APuPu([18, 16, 10], 0.9, [CAO_aritmeticky_priemer, CAO_choquet_integral, CAO_minimum],
+                   [[0, 1], [0, 1, 2], [1]]))
+
 
 #def a_choquet_integral():
 
