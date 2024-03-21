@@ -142,6 +142,7 @@ print(img_arr)
 array_pixel = [[-1,-1], [0,-1],[1,-1],[-1,0], [1,0], [-1,1], [0,1], [1,1]]
 vector = []
 
+'''
 def make_vector(array):
     for i in range(0, len(array)):
         for j in range(0, len(array)):
@@ -149,7 +150,21 @@ def make_vector(array):
                 for l in range(0, len(array_pixel)):
                     x = abs(array[i,j,k] - array[i + array_pixel[l,0], j + array_pixel[l,1],k])
                     vector.append(x)
+'''
 
+def make_vector(array):
+    for i in range(0, len(array)):
+        for j in range(0, len(array[i])):
+            ##for k in range(0, 3):
+                for l in range(0, len(array_pixel)):
+                    if (j + array_pixel[l][1]) > len(array[i]) or (j + array_pixel[l][1]) < 0 or (i + array_pixel[l][0]) < 0 or (i + array_pixel[l][0]) > len(array):
+                        continue
+                    x = abs(array[i][j][0] - array[i + array_pixel[l][0]][j + array_pixel[l][1]][0])
+                    vector.append(x)
+
+    return vector
+
+print('kto vie:', make_vector(img_arr))
 
 from itertools import permutations
 
