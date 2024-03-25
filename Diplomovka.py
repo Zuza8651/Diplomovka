@@ -122,10 +122,12 @@ def uprav(x, y):
         x = abs(x)
     if y < 0:
         y = abs(y)
+    #if x >= len(img_arr):
     if x >= len(img_arr):
-        x = 2*len(img_arr) - x
+        x = 2*(len(img_arr)-1) - x
+    #if y >= len(img_arr[0]):
     if y >= len(img_arr[0]):
-        y = 2*len(img_arr[0]) - y
+        y = 2*(len(img_arr[0])-1) - y
     pole.append(x)
     pole.append(y)
     return pole
@@ -144,8 +146,7 @@ def make_vector(i, j):
         vector.append(abs(w))
     return vector
 
-print('dlzka:', len(img_arr))
-#print('makevector', make_vector(,481))
+#print('makevector', make_vector(320,480))
 
 def choquet_integral(vector, p):
     ch_int = 0.0
@@ -155,10 +156,11 @@ def choquet_integral(vector, p):
     for i in range(1, len(sorted_vector)):
         ch_int = ch_int + (sorted_vector[i] - sorted_vector[i-1]) * ((len(sorted_vector)-i)/len(vector))**p
     return ch_int
+
 def feature():
     noveplatno = img_arr.copy()
     for i in range(0, len(img_arr)):
-        for j in range(0, len(img_arr[i])):
+        for j in range(0, len(img_arr[0])):
             vectoragg = make_vector(i,j)
             aggvalue = choquet_integral(vectoragg, 0.9)
             noveplatno[i][j][0] = aggvalue
@@ -172,8 +174,6 @@ def feature():
 
 
 feature()
-
-
 
 choquet_integral_vysledok = choquet_integral([18,16,10], 0.9)
 print('Choquetov integral:', choquet_integral_vysledok)
@@ -351,5 +351,3 @@ vektor_vahy = [3/8, 3/8, 2/8]
 vysledok = mc_integral(vektor_hodnoty, 0.9, vazeny_aritmeticky_priemer, vektor_vahy)
 print(vysledok)
 '''
-
-
