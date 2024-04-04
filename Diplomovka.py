@@ -349,15 +349,13 @@ def feature():
         for j in range(0, len(img_arr[0])):
             vectoragg = make_vector(i,j)
             #gradient
-            #aggvalue = choquet_integral(vectoragg, 0.9)
+            aggvalue = choquet_integral(vectoragg, 0.9)
             #aggvalue = mc_integral(vectoragg, 0.9, aritmeticky_priemer)
             #aggvalue = C_Ag_operator(vectoragg, 0.9, [choquet_integral, minimum, aritmeticky_priemer, maximum, choquet_integral, minimum, aritmeticky_priemer, maximum])
             #aggvalue = C_APdPid(vectoragg, 0.9, [CAO_choquet_integral, CAO_minimum, CAO_aritmeticky_priemer, CAO_maximum, CAO_choquet_integral, CAO_minimum, CAO_aritmeticky_priemer, CAO_maximum], sets)
             #aggvalue = C_APdPd(vectoragg, 0.9, [CAO_choquet_integral, CAO_minimum, CAO_aritmeticky_priemer, CAO_maximum, CAO_choquet_integral, CAO_minimum, CAO_aritmeticky_priemer, CAO_maximum], sets)
             #aggvalue = C_APuPd(vectoragg, 0.9, [CAO_choquet_integral, CAO_minimum, CAO_aritmeticky_priemer, CAO_maximum, CAO_choquet_integral, CAO_minimum, CAO_aritmeticky_priemer, CAO_maximum], sets)
-            aggvalue = C_APuPu(vectoragg, 0.9, [CAO_choquet_integral, CAO_minimum, CAO_aritmeticky_priemer, CAO_maximum,
-                                                CAO_choquet_integral, CAO_minimum, CAO_aritmeticky_priemer,
-                                                CAO_maximum], sets)
+            #aggvalue = C_APuPu(vectoragg, 0.9, [CAO_choquet_integral, CAO_minimum, CAO_aritmeticky_priemer, CAO_maximum, CAO_choquet_integral, CAO_minimum, CAO_aritmeticky_priemer, CAO_maximum], sets)
 
             noveplatno[i][j][0] = aggvalue
             noveplatno[i][j][1] = aggvalue
@@ -368,39 +366,12 @@ def feature():
     img.show()
 
     #gradient
-    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_choquetobr.png')
+    img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_choquetobr.png')
     #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_mc_int_obr.png')
     #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_Ag_operator_obr.png')
     #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APdPid_obr.png')
     #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APdPd_obr.png')
     #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APuPd_obr.png')
-    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APuPu_obr.png')
-
-    # 29030_zosiveny_GSM(G=0.05,cF=20,t=30)
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_choquetobr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_mc_int_obr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_Ag_operator_obr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APdPid_obr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APdPd_obr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APuPd_obr.png')
-    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APuPu_obr.png')
-
-    # 29030_zosiveny_GSM(G=0.05,cF=70,t=30)
-    img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_choquetobr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)/29030_mc_int_obr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)/29030_C_Ag_operator_obr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)/29030_C_APdPid_obr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)/29030_C_APdPd_obr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)/29030_C_APuPd_obr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)/29030_C_APuPu_obr.png')
-
-    # anisodiff
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_choquetobr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_mc_int_obr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_Ag_operator_obr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APdPid_obr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APdPd_obr.png')
-    # img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APuPd_obr.png')
     #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APuPu_obr.png')
 
 
@@ -535,3 +506,120 @@ def feature3():
 
 #feature3()
 
+def scaling(image):
+    min = 256
+    max = 0
+    img_convert = PIL.Image.open(image)
+    img_convert_arr = np.array(img_convert, dtype="int32")
+
+    for i in range(0, len(img_convert_arr)):
+        for j in range(0, len(img_convert_arr[0])):
+            if img_convert_arr[i][j][0] > max:
+                max = img_convert_arr[i][j][0]
+            if img_convert_arr[i][j][0] < min:
+                min = img_convert_arr[i][j][0]
+
+    const = 255/(max-min)
+
+    for i in range(0, len(img_convert_arr)):
+        for j in range(0, len(img_convert_arr[0])):
+            img_convert_arr[i][j] = (img_convert_arr[i][j] - min)*const
+
+    img = im.fromarray(img_convert_arr.astype(np.uint8))
+    #img.show()
+
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient_scaling/29030_scaling_choquetobr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient_scaling/29030_scaling_mc_int_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient_scaling/29030_scaling_C_Ag_operator_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient_scaling/29030_scaling_C_APdPid_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient_scaling/29030_scaling_C_APdPd_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient_scaling/29030_scaling_C_APuPd_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient_scaling/29030_scaling_C_APuPu_obr.png')
+
+#scaling('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_choquetobr.png')
+#scaling('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_mc_int_obr.png')
+#scaling('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_Ag_operator_obr.png')
+#scaling('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APdPid_obr.png')
+#scaling('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APdPd_obr.png')
+#scaling('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APuPd_obr.png')
+#scaling('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_gradient/29030_C_APuPu_obr.png')
+
+
+
+
+def scaling1(image):
+    min = 256
+    max = 0
+    img_convert = PIL.Image.open(image)
+    img_convert_arr = np.array(img_convert, dtype="int32")
+
+    for i in range(0, len(img_convert_arr)):
+        for j in range(0, len(img_convert_arr[0])):
+            if img_convert_arr[i][j] > max:
+                max = img_convert_arr[i][j]
+            if img_convert_arr[i][j] < min:
+                min = img_convert_arr[i][j]
+
+    const = 255 / (max - min)
+    for i in range(0, len(img_convert_arr)):
+        for j in range(0, len(img_convert_arr[0])):
+            img_convert_arr[i][j] = (img_convert_arr[i][j] - min) * const
+
+    img = im.fromarray(img_convert_arr.astype(np.uint8))
+    img.show()
+
+    # 29030_zosiveny_GSM(G=0.05,cF=20,t=30)
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=20,t=30)_scaling/29030_zosiveny_GSM(G=0.05,cF=20,t=30)_scaling_choquetobr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=20,t=30)_scaling/29030_zosiveny_GSM(G=0.05,cF=20,t=30)_scaling_mc_int_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=20,t=30)_scaling/29030_zosiveny_GSM(G=0.05,cF=20,t=30)_scaling_C_Ag_operator_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=20,t=30)_scaling/29030_zosiveny_GSM(G=0.05,cF=20,t=30)_scaling_C_APdPid_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=20,t=30)_scaling/29030_zosiveny_GSM(G=0.05,cF=20,t=30)_scaling_C_APdPd_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=20,t=30)_scaling/29030_zosiveny_GSM(G=0.05,cF=20,t=30)_scaling_C_APuPd_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=20,t=30)_scaling/29030_zosiveny_GSM(G=0.05,cF=20,t=30)_scaling_C_APuPu_obr.png')
+
+    # 29030_zosiveny_GSM(G=0.05,cF=70,t=30)
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling_choquetobr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling_mc_int_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling_C_Ag_operator_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling_C_APdPid_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling_C_APdPd_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling_C_APuPd_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling_C_APuPu_obr.png')
+
+    # anisdiff
+    img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff_scaling/29030_zosiveny_anisdiff_scaling_choquetobr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff_scaling/29030_zosiveny_anisdiff_scaling_mc_int_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff_scaling/29030_zosiveny_anisdiff_scaling_C_Ag_operator_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff_scaling/29030_zosiveny_anisdiff_scaling_C_APdPid_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff_scaling/29030_zosiveny_anisdiff_scaling_C_APdPd_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff_scaling/29030_zosiveny_anisdiff_scaling_C_APuPd_obr.png')
+    #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff_scaling/29030_zosiveny_anisdiff_scaling_C_APuPu_obr.png')
+
+# 29030_zosiveny_GSM(G=0.05,cF=20,t=30)
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=20,t=30)/29030_zosiveny_GSM(G=0.05,cF=20,t=30)_choquetobr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=20,t=30)/29030_zosiveny_GSM(G=0.05,cF=20,t=30)_mc_int_obr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=20,t=30)/29030_zosiveny_GSM(G=0.05,cF=20,t=30)_C_Ag_operator_obr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=20,t=30)/29030_zosiveny_GSM(G=0.05,cF=20,t=30)_C_APdPid_obr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=20,t=30)/29030_zosiveny_GSM(G=0.05,cF=20,t=30)_C_APdPd_obr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=20,t=30)/29030_zosiveny_GSM(G=0.05,cF=20,t=30)_C_APuPd_obr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=20,t=30)/29030_zosiveny_GSM(G=0.05,cF=20,t=30)_C_APuPu_obr.png')
+
+
+# 29030_zosiveny_GSM(G=0.05,cF=70,t=30)
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_choquetobr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_mc_int_obr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_C_Ag_operator_obr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_C_APdPid_obr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_C_APdPd_obr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_C_APuPd_obr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_C_APuPu_obr.png')
+
+
+# anisdiff
+scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff/29030_zosiveny_anisdiff_choquetobr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff/29030_zosiveny_anisdiff_mc_int_obr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff/29030_zosiveny_anisdiff_C_Ag_operator_obr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff/29030_zosiveny_anisdiff_C_APdPid_obr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff/29030_zosiveny_anisdiff_C_APdPd_obr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff/29030_zosiveny_anisdiff_C_APuPd_obr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff/29030_zosiveny_anisdiff_C_APuPu_obr.png')
