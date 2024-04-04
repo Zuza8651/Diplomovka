@@ -4,6 +4,7 @@ from PIL import Image
 import numpy as np
 from PIL import Image as im
 import cv2
+import os
 
 
 def convert_jpg_to_png(input_path, output_path):
@@ -100,12 +101,13 @@ img_data1 = PIL.Image.open('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/ima
 # Converting the image data into a NumPy array and storing it in 'img_arr'
 img_arr = np.array(img_data, dtype= "int32")
 
-img_arr1 = np.array(img_data1, dtype= "int32")
+img_arr1 = np.array(img_data1.convert("RGB"), dtype= "int32")
 
 
 # Printing the NumPy array representation of the image
 #print(img_arr)
-
+content = os.listdir("C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/")
+print(content)
 print(img_arr1)
 
 #print(img_arr2)
@@ -587,7 +589,7 @@ def scaling1(image):
     #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_GSM_29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling/29030_zosiveny_GSM(G=0.05,cF=70,t=30)_scaling_C_APuPu_obr.png')
 
     # anisdiff
-    img.save('Output/29030_zosiveny_anisdiff_scaling_choquetobr.png')
+    #img.save('Output/29030_zosiveny_anisdiff_scaling_choquetobr.png')
     #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff_scaling/29030_zosiveny_anisdiff_scaling_mc_int_obr.png')
     #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff_scaling/29030_zosiveny_anisdiff_scaling_C_Ag_operator_obr.png')
     #img.save('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff_scaling/29030_zosiveny_anisdiff_scaling_C_APdPid_obr.png')
@@ -616,7 +618,7 @@ def scaling1(image):
 
 
 # anisdiff
-scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff/29030_zosiveny_anisdiff_choquetobr.png')
+#scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff/29030_zosiveny_anisdiff_choquetobr.png')
 #scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff/29030_zosiveny_anisdiff_mc_int_obr.png')
 #scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff/29030_zosiveny_anisdiff_C_Ag_operator_obr.png')
 #scaling1('C:/Users/zuza8/Desktop/BSR_full/BSR/BSDS500/data/images/test/Auto_zosiveny_anisdiff/29030_zosiveny_anisdiff_C_APdPid_obr.png')
