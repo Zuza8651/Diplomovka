@@ -5,8 +5,9 @@ import numpy as np
 from PIL import Image as im
 import cv2
 import os
+#import Operators
 
-
+'''
 def convert_jpg_to_png(input_path, output_path):
     try:
         # Načítanie obrázka z formátu JPEG
@@ -66,7 +67,7 @@ def rozmazanie_gradient1(input_path, output_path):
     except Exception as e:
         print(f"Chyba pri rozmazávaní obrázka (gradient): {e}")
 
-rozmazanie_gradient1('Input/29030_zosiveny.png', 'Input/29030_gradient_rozmazany_obrazok.png')
+rozmazanie_gradient1('Input/29030_zosiveny.png', 'Input/29030_grey_gauss.png')
 
 def rozmazanie_segmentacia(input_path, output_path):
     try:
@@ -87,19 +88,20 @@ rozmazanie_segmentacia('Input/29030_zosiveny.png', 'Input/29030_segmentacia_rozm
 
 content_input = os.listdir('C:/Users/zuza8/PycharmProjects/Diplomovka/Input')
 print(content_input)
+'''
 
 # trojrozmerné pole rxsxf
 
 #[:,:,f]
 #imagine_to_array
 
-img_data = PIL.Image.open('Input/29030_gradient_rozmazany_obrazok.png')
+#img_data = PIL.Image.open('Input/29030_grey_gauss.png')
 
 #img_data = PIL.Image.open('Input/29030_grey_GSM(G=0.05,cF=20,t=30).png')
 
 #img_data = PIL.Image.open('Input/29030_grey_GSM(G=0.05,cF=70,t=30).png')
 
-#img_data = PIL.Image.open('Input/29030_grey_anisDiff.png')
+img_data = PIL.Image.open('Input/29030_grey_anisDiff.png')
 
 # Converting the image data into a NumPy array and storing it in 'img_arr'
 #img_arr = np.array(img_data, dtype= "int32")
@@ -273,7 +275,7 @@ def feature():
             vectoragg = make_vector(i,j)
 
             #aggvalue = choquet_integral(vectoragg, 0.9)
-            aggvalue = mc_integral(vectoragg, 0.9, aritmeticky_priemer)
+            #aggvalue = mc_integral(vectoragg, 0.9, aritmeticky_priemer)
             #aggvalue = C_Ag_operator(vectoragg, 0.9, [choquet_integral, minimum, aritmeticky_priemer, maximum, choquet_integral, minimum, aritmeticky_priemer, maximum])
             #aggvalue = C_APdPu(vectoragg, 0.9, [CAO_aritmeticky_priemer, CAO_aritmeticky_priemer, CAO_aritmeticky_priemer, CAO_aritmeticky_priemer, CAO_choquet_integral, CAO_choquet_integral, CAO_choquet_integral, CAO_choquet_integral], sets)
             #aggvalue = C_APdPd(vectoragg, 0.9, [CAO_aritmeticky_priemer, CAO_aritmeticky_priemer, CAO_aritmeticky_priemer, CAO_aritmeticky_priemer, CAO_choquet_integral, CAO_choquet_integral, CAO_choquet_integral, CAO_choquet_integral], sets)
@@ -298,22 +300,22 @@ def feature():
     #img.save('Output/gradient/29030_C_APuPu_obr.png')
 
     # 29030_grey_GSM(G=0.05,cF=20,t=30)
-    # img.save('Output/GSM(cf=20)/29030_grey_GSM(G=0.05,cF=20,t=30)_choquetobr.png')
-    #img.save('Output/GSM(cf=20)/29030_grey_GSM(G=0.05,cF=20,t=30)_mc_int_obr.png')
-    # img.save('Output/GSM(cf=20)/29030_grey_GSM(G=0.05,cF=20,t=30)_C_Ag_operator_obr.png')
-    #img.save('Output/GSM(cf=20)/29030_grey_GSM(G=0.05,cF=20,t=30)_C_APdPu_obr.png')
-    #img.save('Output/GSM(cf=20)/29030_grey_GSM(G=0.05,cF=20,t=30)_C_APdPd_obr.png')
-    #img.save('Output/GSM(cf=20)/29030_grey_GSM(G=0.05,cF=20,t=30)_C_APuPd_obr.png')
-    #img.save('Output/GSM(cf=20)/29030_grey_GSM(G=0.05,cF=20,t=30)_C_APuPu_obr.png')
+    #img.save('Output/GSM(G=0.05,cF=20,t=30)/29030_grey_GSM(G=0.05,cF=20,t=30)_choquetobr.png')
+    #img.save('Output/GSM(G=0.05,cF=20,t=30)/29030_grey_GSM(G=0.05,cF=20,t=30)_mc_int_obr.png')
+    #img.save('Output/GSM(G=0.05,cF=20,t=30)/29030_grey_GSM(G=0.05,cF=20,t=30)_C_Ag_operator_obr.png')
+    #img.save('Output/GSM(G=0.05,cF=20,t=30)/29030_grey_GSM(G=0.05,cF=20,t=30)_C_APdPu_obr.png')
+    #img.save('Output/GSM(G=0.05,cF=20,t=30)/29030_grey_GSM(G=0.05,cF=20,t=30)_C_APdPd_obr.png')
+    #img.save('Output/GSM(G=0.05,cF=20,t=30)/29030_grey_GSM(G=0.05,cF=20,t=30)_C_APuPd_obr.png')
+    #img.save('Output/GSM(G=0.05,cF=20,t=30)/29030_grey_GSM(G=0.05,cF=20,t=30)_C_APuPu_obr.png')
 
     # 29030_grey_GSM(G=0.05,cF=70,t=30)
-    #img.save('Output/GSM(cf=70)/29030_grey_GSM(G=0.05,cF=70,t=30)_choquetobr.png')
-    #img.save('Output/GSM(cf=70)/29030_grey_GSM(G=0.05,cF=70,t=30)_mc_int_obr.png')
-    # img.save('Output/GSM(cf=70)/29030_grey_GSM(G=0.05,cF=70,t=30)_C_Ag_operator_obr.png')
-    #img.save('Output/GSM(cf=70)/29030_grey_GSM(G=0.05,cF=70,t=30)_C_APdPu_obr.png')
-    #img.save('Output/GSM(cf=70)/29030_grey_GSM(G=0.05,cF=70,t=30)_C_APdPd_obr.png')
-    #img.save('Output/GSM(cf=70)/29030_grey_GSM(G=0.05,cF=70,t=30)_C_APuPd_obr.png')
-    #img.save('Output/GSM(cf=70)/29030_grey_GSM(G=0.05,cF=70,t=30)_C_APuPu_obr.png')
+    #img.save('Output/GSM(G=0.05,cF=70,t=30)/29030_grey_GSM(G=0.05,cF=70,t=30)_choquetobr.png')
+    #img.save('Output/GSM(G=0.05,cF=70,t=30)/29030_grey_GSM(G=0.05,cF=70,t=30)_mc_int_obr.png')
+    #img.save('Output/GSM(G=0.05,cF=70,t=30)/29030_grey_GSM(G=0.05,cF=70,t=30)_C_Ag_operator_obr.png')
+    #img.save('Output/GSM(G=0.05,cF=70,t=30)/29030_grey_GSM(G=0.05,cF=70,t=30)_C_APdPu_obr.png')
+    #img.save('Output/GSM(G=0.05,cF=70,t=30)/29030_grey_GSM(G=0.05,cF=70,t=30)_C_APdPd_obr.png')
+    #img.save('Output/GSM(G=0.05,cF=70,t=30)/29030_grey_GSM(G=0.05,cF=70,t=30)_C_APuPd_obr.png')
+    #img.save('Output/GSM(G=0.05,cF=70,t=30)/29030_grey_GSM(G=0.05,cF=70,t=30)_C_APuPu_obr.png')
 
     # anisdiff
     #img.save('Output/anisdiff/29030_grey_anisDiff_choquetobr.png')
@@ -357,18 +359,18 @@ def scaling(image):
     #img.save('Output/gradient/gradient_scaling/29030_scaling_C_APuPu_obr.png')
 
     # 29030_grey_GSM(G=0.05,cF=20,t=30)
-    # img.save('Output/GSM(G=0.05,cF=20,t=30)/GSM(G=0.05,cF=20,t=30)_scaling/29030_grey_GSM(G=0.05,cF=20,t=30)_scaling_choquetobr.png')
+    #img.save('Output/GSM(G=0.05,cF=20,t=30)/GSM(G=0.05,cF=20,t=30)_scaling/29030_grey_GSM(G=0.05,cF=20,t=30)_scaling_choquetobr.png')
     #img.save('Output/GSM(G=0.05,cF=20,t=30)/GSM(G=0.05,cF=20,t=30)_scaling/29030_grey_GSM(G=0.05,cF=20,t=30)_scaling_mc_int_obr.png')
-    # img.save('Output/GSM(G=0.05,cF=20,t=30)/GSM(G=0.05,cF=20,t=30)_scaling/29030_grey_GSM(G=0.05,cF=20,t=30)_scaling_C_Ag_operator_obr.png')
+    #img.save('Output/GSM(G=0.05,cF=20,t=30)/GSM(G=0.05,cF=20,t=30)_scaling/29030_grey_GSM(G=0.05,cF=20,t=30)_scaling_C_Ag_operator_obr.png')
     #img.save('Output/GSM(G=0.05,cF=20,t=30)/GSM(G=0.05,cF=20,t=30)_scaling/29030_grey_GSM(G=0.05,cF=20,t=30)_scaling_C_APdPu_obr.png')
     #img.save('Output/GSM(G=0.05,cF=20,t=30)/GSM(G=0.05,cF=20,t=30)_scaling/29030_grey_GSM(G=0.05,cF=20,t=30)_scaling_C_APdPd_obr.png')
     #img.save('Output/GSM(G=0.05,cF=20,t=30)/GSM(G=0.05,cF=20,t=30)_scaling/29030_grey_GSM(G=0.05,cF=20,t=30)_scaling_C_APuPd_obr.png')
     #img.save('Output/GSM(G=0.05,cF=20,t=30)/GSM(G=0.05,cF=20,t=30)_scaling/29030_grey_GSM(G=0.05,cF=20,t=30)_scaling_C_APuPu_obr.png')
 
     # 29030_grey_GSM(G=0.05,cF=70,t=30)
-    # img.save('Output/GSM(G=0.05,cF=70,t=30)/GSM(G=0.05,cF=70,t=30)_scaling/29030_grey_GSM(G=0.05,cF=70,t=30)_scaling_choquetobr.png')
+    #img.save('Output/GSM(G=0.05,cF=70,t=30)/GSM(G=0.05,cF=70,t=30)_scaling/29030_grey_GSM(G=0.05,cF=70,t=30)_scaling_choquetobr.png')
     #img.save('Output/GSM(G=0.05,cF=70,t=30)/GSM(G=0.05,cF=70,t=30)_scaling/29030_grey_GSM(G=0.05,cF=70,t=30)_scaling_mc_int_obr.png')
-    # img.save('Output/GSM(G=0.05,cF=70,t=30)/GSM(G=0.05,cF=70,t=30)_scaling/29030_grey_GSM(G=0.05,cF=70,t=30)_scaling_C_Ag_operator_obr.png')
+    #img.save('Output/GSM(G=0.05,cF=70,t=30)/GSM(G=0.05,cF=70,t=30)_scaling/29030_grey_GSM(G=0.05,cF=70,t=30)_scaling_C_Ag_operator_obr.png')
     #img.save('Output/GSM(G=0.05,cF=70,t=30)/GSM(G=0.05,cF=70,t=30)_scaling/29030_grey_GSM(G=0.05,cF=70,t=30)_scaling_C_APdPu_obr.png')
     #img.save('Output/GSM(G=0.05,cF=70,t=30)/GSM(G=0.05,cF=70,t=30)_scaling/29030_grey_GSM(G=0.05,cF=70,t=30)_scaling_C_APdPd_obr.png')
     #img.save('Output/GSM(G=0.05,cF=70,t=30)/GSM(G=0.05,cF=70,t=30)_scaling/29030_grey_GSM(G=0.05,cF=70,t=30)_scaling_C_APuPd_obr.png')
