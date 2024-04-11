@@ -95,13 +95,13 @@ print(content_input)
 #[:,:,f]
 #imagine_to_array
 
-#img_data = PIL.Image.open('Input/29030_grey_gauss.png')
+img_data = PIL.Image.open('Input/29030_grey_gauss.png')
 
 #img_data = PIL.Image.open('Input/29030_grey_GSM(G=0.05,cF=20,t=30).png')
 
 #img_data = PIL.Image.open('Input/29030_grey_GSM(G=0.05,cF=70,t=30).png')
 
-img_data = PIL.Image.open('Input/29030_grey_anisDiff.png')
+#img_data = PIL.Image.open('Input/29030_grey_anisDiff.png')
 
 # Converting the image data into a NumPy array and storing it in 'img_arr'
 #img_arr = np.array(img_data, dtype= "int32")
@@ -234,6 +234,17 @@ def C_APuPu(vector, p, array, sets): # PI^\uparrow, PHI_\id=PHI_\uparrow pre vst
         c_app = c_app + (auxiliary_vector[i]) * ((((len(auxiliary_vector) - i) / len(vector)) ** p) - (
                     ((len(auxiliary_vector) - i - 1) / len(vector)) ** p))
     return c_app
+
+def C_APdPid(vector, p, array, sets): # PI^\downarrow, PHI_\id
+  c_app=0.0
+  auxiliary_vector = []
+  for i in range(0,len(vector)):
+    cao=array[i]
+    auxiliary_vector.append(cao(vector,p,sets[i]))
+  auxiliary_vector.sort(reverse=True)
+  for i in range(0, len(auxiliary_vector)):
+        c_app = c_app + (auxiliary_vector[i])*((((len(auxiliary_vector) - i) / len(vector)) ** p)-(((len(auxiliary_vector) - i-1) / len(vector)) ** p))
+  return c_app
 
 array_pixel = [[-1,-1], [0,-1],[1,-1],[-1,0], [1,0], [-1,1], [0,1], [1,1]]
 sets = [[0, 1, 2, 3, 4, 5, 6, 7], [3, 4], [1, 2, 5, 6], [0, 7], [0, 1, 2, 3, 4, 5, 6, 7], [0, 1, 6, 7], [1, 2, 5, 6], [0, 1, 2, 5, 6, 7]]
